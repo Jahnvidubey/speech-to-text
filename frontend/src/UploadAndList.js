@@ -18,7 +18,6 @@ const UploadAndList = () => {
 
   const handleClick = (filePath) => {
     setClickedFiles(prev => ({ ...prev, [filePath]: true }));
-    // Add additional logic if needed, such as logging or analytics
   };
 
   const fetchFiles = () => {
@@ -55,8 +54,9 @@ const UploadAndList = () => {
   };
 
   const handleTranscribe = (filePath) => {
+    console.log(`Transcribing file: ${filePath}`);
     setLoading(prev => ({ ...prev, [filePath]: true }));
-
+  
     axios.get(`http://127.0.0.1:8000/speech/transcribe/${encodeURIComponent(filePath)}/`, { responseType: 'blob' })
       .then(response => {
         const url = window.URL.createObjectURL(new Blob([response.data]));
@@ -69,7 +69,8 @@ const UploadAndList = () => {
         setLoading(prev => ({ ...prev, [filePath]: false }));
       });
   };
-
+  
+  
   const handleTranscribeAll = () => {
     setIsTranscribingAll(true);
     const transcribePromises = files.map((filePath, index) =>
@@ -84,12 +85,13 @@ const UploadAndList = () => {
         }, 1000 * index);
       })
     );
-
+  
     Promise.all(transcribePromises)
       .finally(() => {
         setIsTranscribingAll(false);
       });
   };
+  
 
   return (
     <div>
