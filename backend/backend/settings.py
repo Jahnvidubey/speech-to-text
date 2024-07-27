@@ -27,16 +27,14 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'default-secret-key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DJANGO_DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['13.233.146.103','127.0.0.1','localhost','.vercel.app']
+ALLOWED_HOSTS = ['13.233.146.103','127.0.0.1','localhost',]
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
-    'https://speech-to-text-theta.vercel.app/'
 ]
 CORS_ORIGIN_REGEX_WHITELIST = [
     'http://localhost:3000',
-    'https://speech-to-text-theta.vercel.app/'
 ]
 
 # Application definition
@@ -52,7 +50,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'knox',
-    'django_vercel',
 ]
 
 MIDDLEWARE = [
@@ -67,9 +64,6 @@ MIDDLEWARE = [
 ]
 
 
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',  
-]
 
 ROOT_URLCONF = 'backend.urls'
 
