@@ -1,1 +1,1 @@
-gunicorn backend.wsgi:application
+gunicorn speech_to_text.wsgi:application
