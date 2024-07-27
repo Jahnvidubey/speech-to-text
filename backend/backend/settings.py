@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'speech',
     'rest_framework',
     'corsheaders',
-    'knox'
+    'knox',
+    'django_vercel',
 ]
 
 MIDDLEWARE = [
