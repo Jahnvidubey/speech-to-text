@@ -37,5 +37,6 @@ typing_extensions==4.12.2
 tzdata==2023.4
 urllib3==2.2.1
 virtualenv==20.25.0
-gunicorn
+Django==4.2
+gunicorn==20.1.0
 
