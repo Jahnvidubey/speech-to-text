@@ -1,1 +1,1 @@
-gunicorn backend.backend.wsgi:application
+python manage.py runserver
